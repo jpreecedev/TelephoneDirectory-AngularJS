@@ -1,0 +1,59 @@
+﻿<form name="entryForm" ng-submit="submit()" class="form-inline">
+    <div class="row shaded padded">
+        <div class="row">
+            <div class="col-sm-4">
+                <label for="firstName">First Name</label>
+                <input id="firstName" type="text" class="form-control" ng-model="selectedEntry.firstName" required="required" />
+            </div>
+            <div class="col-sm-4">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text" class="form-control" ng-model="selectedEntry.lastName" required="required" />
+            </div>
+            <div class="col-sm-4">
+                <label for="phoneNumber">Phone Number</label>
+                <input id="phoneNumber" type="text" class="form-control" ng-model="selectedEntry.number" required="required" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="submit" value="Add" />
+            <input type="reset" value="Reset" />
+        </div>
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Phone Number
+            </th>
+            <th>
+                &nbsp;
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="entry in entries">
+            <td>
+                <span>{{entry.firstName}}</span>
+            </td>
+            <td>
+                <span>{{entry.lastName}}</span>
+            </td>
+            <td>
+                <span>{{entry.number}}</span>
+            </td>
+            <td>
+                <a ng-click="edit(entry)">Edit</a>&nbsp;<a ng-click="delete(entry)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
